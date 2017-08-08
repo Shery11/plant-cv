@@ -1,14 +1,39 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="twitter">
     <ion-title>
-      Ionic Blank
+      Enter values
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding >
+
+<ion-list color="twitter">
+  
+   <ion-item>
+    <ion-label floating>Temperature</ion-label>
+    <ion-input type="number" #temp></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>pH</ion-label>
+    <ion-input type="number" #ph></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Sunlight</ion-label>
+    <ion-input type="text" #sunlight></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Moisture</ion-label>
+    <ion-input type="number" #moisture></ion-input>
+  </ion-item>
+
+</ion-list>  
+
+<div padding>
+  <button ion-button full (click) = "submit()">submit</button>
+</div>
+
 </ion-content>

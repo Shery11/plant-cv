@@ -1,5 +1,5 @@
 import { Component , ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
@@ -22,13 +22,17 @@ export class LoginPage {
 	@ViewChild('username') uname;
 	@ViewChild('password') password;
 
-  constructor(private fireauth: AngularFireAuth ,public navCtrl: NavController,public alertCtrl: AlertController) {
+  constructor(private fireauth: AngularFireAuth ,public navCtrl: NavController,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
 
   }
 
    
    signIn(){
-
+      let loader = this.loadingCtrl.create({
+          content: "Logging in please wait",
+          duration: 3000
+        });
+     loader.present();
      this.fireauth.auth.signInWithEmailAndPassword(this.uname.value, this.password.value).then((data)=>{
         console.log(data);
         let alert = this.alertCtrl.create({
@@ -38,7 +42,8 @@ export class LoginPage {
         });
 
         alert.present();
-        this.navCtrl.push(HomePage);
+        
+        this.navCtrl.setRoot(HomePage);
 
      }).catch(error =>{
           console.log(error);

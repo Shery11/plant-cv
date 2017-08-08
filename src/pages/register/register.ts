@@ -1,5 +1,5 @@
 import { Component ,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController,LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginPage } from '../login/login';
@@ -22,7 +22,7 @@ export class RegisterPage {
 	@ViewChild('username') uname;
 	@ViewChild('password') password;
 
-  constructor(private fire : AngularFireAuth ,public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController	) {
+  constructor(private fire : AngularFireAuth ,public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public loadingCtrl: LoadingController	) {
   }
 
   ionViewDidLoad() {
@@ -31,6 +31,12 @@ export class RegisterPage {
 
 
   register(){
+
+     let loader = this.loadingCtrl.create({
+          content: "Registering user please wait",
+          duration: 3000
+        });
+     loader.present();
 
   	this.fire.auth.createUserWithEmailAndPassword(this.uname.value,this.password.value)
     .then((data)=>{
