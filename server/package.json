@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bayes-classifier": "0.0.5",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "fill-range": "^4.0.0",
+    "firebase": "^4.2.0"
+  }
+}
