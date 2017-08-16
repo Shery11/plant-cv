@@ -19,9 +19,12 @@ var db = firebase.database();
 router.post('/data',function(req,res){
 
 	var datax = req.body.name;
-	console.log(datax)
+	console.log(datax);
+ 
+    // var a = "3 15 high wet+"
+     
 	// all the functionality will be here
-   db.ref().once('value').then(function(snapshot){
+   db.ref().child('soils').once('value').then(function(snapshot){
 		data = snapshot.val();
 			
 		for(var a in data){

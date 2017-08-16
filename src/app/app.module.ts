@@ -1,8 +1,9 @@
- import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
 
 
 import { MyApp } from './app.component';
@@ -11,20 +12,18 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
 import { AuthProvider } from '../providers/auth/auth';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
-
+import { ValuesProvider } from '../providers/values/values';
 
 
 const firebaseAuth = {
-    apiKey: "AIzaSyDGhwQRDgzXMEypaPOft7ENFQxpcnBpObE",
-    authDomain: "jobs-7ad55.firebaseapp.com",
-    databaseURL: "https://jobs-7ad55.firebaseio.com",
-    projectId: "jobs-7ad55",
-    storageBucket: "jobs-7ad55.appspot.com",
-    messagingSenderId: "729407863428"
+   apiKey: "AIzaSyA1xI8zkTTyQVsGQ8tPMY4dsvVd6sSoCqs",
+   authDomain: "jobsfiverr-4acf1.firebaseapp.com",
+   databaseURL: "https://jobsfiverr-4acf1.firebaseio.com",
+   projectId: "jobsfiverr-4acf1",
+   storageBucket: "jobsfiverr-4acf1.appspot.com",
+   messagingSenderId: "80394490012"
   }
 
 
@@ -40,7 +39,8 @@ const firebaseAuth = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseAuth),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,7 +53,8 @@ const firebaseAuth = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    ValuesProvider
   ]
 })
 export class AppModule {}
