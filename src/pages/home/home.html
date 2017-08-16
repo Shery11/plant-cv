@@ -8,22 +8,32 @@
 
 <ion-content padding >
 
-<ion-list color="twitter">
+<ion-list>
 
 
-  
-   <ion-item>
+
+  <ion-item>
+    <ion-avatar item-start>
+    <img src="assets/img/temperature.png">
+    </ion-avatar>
     <ion-label floating>Temperature</ion-label>
     <ion-input type="number"  min="0" max="50"  #temp></ion-input>
   </ion-item>
 
+  
+  
+
   <ion-item>
+     <ion-avatar item-start>
+      <img src="assets/img/ph.png"></ion-avatar>
     <ion-label floating>pH</ion-label>
     <ion-input type="number" min="0" max="14" #ph></ion-input>
   </ion-item>
 
 
   <ion-item>
+    <ion-avatar item-start>
+     <img src="assets/img/sunlight.png"></ion-avatar>
     <ion-label>Sunlight</ion-label>
     <ion-select #sunlight>
       <ion-option value="high">High</ion-option>
@@ -34,6 +44,8 @@
 
 
  <ion-item>
+  <ion-avatar item-start>
+    <img src="assets/img/moisture.png"> </ion-avatar>
     <ion-label>Moisture</ion-label>
     <ion-select #moisture>
       <ion-option value="dry+">Dry +</ion-option>
@@ -49,7 +61,7 @@
 </ion-list>  
 
 <div padding>
-  <button ion-button full (click) = "submit()">submit</button>
+  <button color="secondary" ion-button full (click) = "submit()">submit</button>
 </div>
 
 </ion-content>
