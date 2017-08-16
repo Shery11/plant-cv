@@ -21,7 +21,7 @@ export class ValuesProvider {
  	  var header = new Headers();
       header.append("Access-Control-Allow-Origin", "http://localhost:8100");
       
-      return this.http.post("http://localhost:8000/sensor/data",{ name : data },{
+      return this.http.post("http://e14fa5a2.ngrok.io/sensor/data",{ name : data },{
       	headers: header	
       });
   }
