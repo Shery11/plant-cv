@@ -5,16 +5,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { DiseasePage } from "../pages/disease/disease"
+import { TabsPage } from '../pages/tabs/tabs';
+
 
 import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ValuesProvider } from '../providers/values/values';
+import { Camera } from '@ionic-native/camera';
 
 
 const firebaseAuth = {
@@ -32,7 +35,9 @@ const firebaseAuth = {
     MyApp,
     HomePage,
     RegisterPage,
-    LoginPage
+    LoginPage,
+    DiseasePage,
+    TabsPage
     
   ],
   imports: [
@@ -47,10 +52,13 @@ const firebaseAuth = {
     MyApp,
     HomePage,
     RegisterPage,
-    LoginPage
+    LoginPage,
+    DiseasePage,
+    TabsPage
       ],
   providers: [
     StatusBar,
+    Camera,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
