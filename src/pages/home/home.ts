@@ -43,11 +43,12 @@ export class HomePage {
          this.value.getvalues(data).map(res => res.json())
         .subscribe(
           data =>{ 
-            console.log(data);
+            console.log(data.minMatch[0].label);
 
              let alert = this.alertCtrl.create({
-              title: 'Result',
-              subTitle: data  + " is best fo this soil",
+              title: "<h1>Result </h1>",
+              subTitle: data.bestMatch.toUpperCase()  + " is best for this soil<hr>" ,
+              message : "Soil is also suitable for <br>"+ data.minMatch[0].label.toUpperCase()+"<br>"+data.minMatch[1].label.toUpperCase()+"<br>"+data.minMatch[2].label.toUpperCase()+"<br>"+data.minMatch[3].label.toUpperCase()+".",
               buttons: ['OK']
             });
             alert.present();

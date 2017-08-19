@@ -21,7 +21,7 @@ export class ValuesProvider {
  	  var header = new Headers();
       header.append("Access-Control-Allow-Origin", "http://localhost:8100");
       
-      return this.http.post("https://plankcv.fwd.wf/sensor/data",{ name : data },{
+      return this.http.post("http://a6c637c1.ngrok.io/sensor/data",{ name : data },{
       	headers: header	
       });
   }

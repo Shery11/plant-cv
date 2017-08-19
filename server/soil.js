@@ -57,10 +57,26 @@ router.post('/data',function(req,res){
 	  }
 
 		classifier.train();
-         
-	
-        res.json(classifier.classify(datax)); 
-		
+        var bestMatch = classifier.classify(datax)  
+        var othercrops = classifier.getClassifications(datax) 
+        
+         var minMatch = [];
+
+         minMatch.push(othercrops[1])
+         minMatch.push(othercrops[2])
+         minMatch.push(othercrops[3])
+         minMatch.push(othercrops[4])
+
+         // console.log(minMatch)
+    
+         var returnData = {
+             bestMatch : bestMatch,
+             minMatch :minMatch
+         }
+
+        res.json(returnData); 
+
+        
    })
   
 
