@@ -1,46 +1,84 @@
-<!--
-  Generated template for the DiseasePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar color="twitter">
-    <ion-title>Disease</ion-title>
+    <ion-title>
+      Disease
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content padding-top >
 
-<ion-content padding>
-  <!--select cropName  -->
-  <ion-list>
-  <ion-item>
- 
-    <ion-label>Crop</ion-label>
-    <ion-select [(ngModel)]="name">
-      <ion-option value="apple">Apple</ion-option>
-      <ion-option value="mango">Mango</ion-option>
-      <ion-option value="peach">Peach</ion-option>
-      <ion-option value="banana">Banana</ion-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-     <button ion-button color="primary" (click)="takePicture('gallery')"> Upload Photo </button> 
-     <button ion-button color="warning" (click)="takePicture('camera')"> Take Photo </button> 
-    <img [src]="base64Image" *ngIf="base64Image" />
-    </ion-item>
+
+<ion-grid>
+  <ion-row>
+   
+    <ion-col xl>
     
+     <img src="assets/img/disease.jpg" style="width:100%">
+    
+    </ion-col>
+   
+  </ion-row>
+</ion-grid>
+
+
+
+
+<ion-list padding>
+
+
+
+
+
   <ion-item>
-        <button class="btn" (click)="onSubmit()" color="danger" ion-button full> Submit </button>
-        <button class="btn" (click)="test()" color="danger" ion-button full> test </button>
+    <ion-avatar item-start>
+     <img src="assets/img/fruits.png"></ion-avatar>
+    <ion-label>Crop</ion-label>
+    <ion-select #name>
+      <ion-option value="apple">Apple</ion-option>
+      <ion-option value="mango">mango</ion-option>
+      <ion-option value="orange">Orange</ion-option>
+      <ion-option value="banana">Banana</ion-option>
+      <ion-option value="peach">Peach</ion-option>
+      <ion-option value="strawberry">Strawberry</ion-option>
+      </ion-select>
   </ion-item>
 
-  <ion-item *ngIf="submit"> Result : {{result.message}} --{{result.dissimilarity}}</ion-item>
-</ion-list>
 
-<ion-tabs>
- <ion-tab [root]="chatRoot" tabTitle="Chat" tabIcon="chat"></ion-tab>
-</ion-tabs>
+ <ion-item>
+  <ion-avatar  item-start (click)="setSpecial()">
+     <img src="assets/img/gallery.png">
+  </ion-avatar>
+    
+    <ion-grid>
+        <ion-row>
+         
+          <ion-col xl>
+          
+           <img [src]="base64Image" *ngIf="base64Image" />
+         
+          </ion-col>
+         
+          </ion-row>
+           <ion-row>
+              <button ion-button (click)="takePicture('gallery')"> Gallery </button>
+            <button ion-button (click)="takePicture('camera')"> Camera </button>
+         </ion-row>
+      </ion-grid>
+  </ion-item>
+
+
+  
+
+</ion-list>  
+
+<div padding>
+  <button color="secondary" ion-button full (click) = "onSubmit()">submit</button>
+</div>
+
+
+  
+
 </ion-content>
+
+
